@@ -1,0 +1,9 @@
+settings_local.py
+settings_local.pyc
+*.pyc
+src/media/*/node_modules
+/.idea/
+logs/*
+docs/build/*
+.DS_Store
+src/mycms.db
