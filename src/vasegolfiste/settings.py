@@ -3,7 +3,11 @@ import os
 PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
 
 
-DEBUG = True
+if 'prod' in os.uname()[1]:
+    DEBUG = False
+else:
+    DEBUG = True
+
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
