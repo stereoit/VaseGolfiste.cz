@@ -14,6 +14,12 @@ framework.
 
 """
 import os
+import sys
+
+PROJECT_ROOT = '%s' % os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..'))
+
+sys.path.append(PROJECT_ROOT)
+
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "vasegolfiste.settings")
 
