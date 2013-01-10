@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'vasegolfiste.views.home', name='home'),
      url(r'^kluby/', include('vasegolfiste.clubs.urls')),
+     url(r'^hriste/', include('vasegolfiste.courses.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
@@ -16,10 +17,16 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     #('^narrow/$', TemplateView.as_view(template_name='index-narrow.html')),
+    url(r'^ckeditor/', include('ckeditor.urls')),
     ('^$', TemplateView.as_view(template_name='index-narrow.html'))
 )
 
 if settings.DEBUG:
     from django.contrib.staticfiles.urls import staticfiles_urlpatterns
     urlpatterns += staticfiles_urlpatterns()
+    urlpatterns += patterns('',
+        url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+                'document_root': settings.MEDIA_ROOT,
+        }),
+    )
 

@@ -1,0 +1,15 @@
+{% extends "base-narrow.html" %}
+	{% block page_title %}Hřiště{% endblock %}
+	{% block title %}Hřiště{% endblock %}
+
+	{% block main-content %}
+	<p>Zde naleznete kompletní výpis veřejných hřišť.</p>
+	<br/>
+	{% for course in golfcourse_list %}
+	<div class="course">
+		<h3>{{ course.title }}</h3>
+		<p>{{ course.description|safe }}</p>
+	</div>
+	<hr/>
+	{% endfor %}
+	{% endblock %}

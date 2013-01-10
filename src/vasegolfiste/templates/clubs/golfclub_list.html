@@ -1,4 +1,27 @@
 {% extends "base-narrow.html" %}
+	{% block page_title %}Kluby{% endblock %}
+	{% block title %}Kluby{% endblock %}
+
 	{% block main-content %}
-	<h2> Kluby </h2>
+	<p>Zde naleznete kompletní výpis spřátelených klubů.</p>
+	<br/>
+	{% for club in golfclub_list %}
+	<div class="club">
+		<table class="club">
+			<tr class="logo">
+				<td class="logo">
+				<img class="logo" alt="{{ club.title }} logo" src="{{ MEDIA_URL }}{{ club.logo }}" >
+			  </td>
+				<td class="title">
+					<h3 class="title">{{ club.title }}</h3>
+					<span class="status">{{ club.get_status_display }}</span>
+				</td>
+			</tr>
+		</table>
+		<p>{{ club.description|safe }}</p>
+
+
+	</div>
+	<hr/>
+	{% endfor %}
 	{% endblock %}

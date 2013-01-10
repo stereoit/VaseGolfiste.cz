@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 from django.utils.translation import ugettext as _
 
 class GolfClub(models.Model):
@@ -9,7 +10,7 @@ class GolfClub(models.Model):
     )
     title = models.CharField(_('title'), max_length=100)
     slug = models.SlugField(max_length=100)
-    description = models.TextField(_('description'))
+    description = RichTextField(_('description'))
     logo = models.ImageField(upload_to='logos/', max_length=100)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='ASSOCIATED')
 
