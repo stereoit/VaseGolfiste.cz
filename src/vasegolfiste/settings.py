@@ -52,7 +52,11 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = ''
+if DEBUG:
+    #MEDIA_ROOT = 'media'
+    MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
+else:
+    MEDIA_ROOT = '/srv/staticfiles/vasegolfiste.cz/media/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -127,10 +131,13 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'vasegolfiste.clubs',
+    'vasegolfiste.courses',
     # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    'south',
 )
 
 # A sample logging configuration. The only tangible logging
