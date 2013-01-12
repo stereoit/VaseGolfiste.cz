@@ -1,0 +1,15 @@
+{% extends "base-narrow.html" %}
+	{% block page_title %}Aktuality{% endblock %}
+	{% block title %}Aktuality{% endblock %}
+
+	{% block main-content %}
+	<p>Zde naleznete novinky o aktuálním dění.</p>
+	<br/>
+	{% for news in news_list %}
+	<div class="news">
+		<h3>{{ news.title }}</h3>
+		<p>{{ news.description|safe }}</p>
+	</div>
+	<hr/>
+	{% endfor %}
+	{% endblock %}
