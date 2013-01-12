@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'vasegolfiste.views.home', name='home'),
      url(r'^kluby/', include('vasegolfiste.clubs.urls')),
      url(r'^hriste/', include('vasegolfiste.courses.urls')),
+     url(r'^novinky/', include('news.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
