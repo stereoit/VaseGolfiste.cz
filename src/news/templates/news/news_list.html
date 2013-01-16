@@ -8,7 +8,8 @@
 	{% for news in news_list %}
 	<div class="news">
 		<h3>{{ news.title }}</h3>
-		<p>{{ news.description|safe }}</p>
+		<p>{{ news.text|safe }}</p>
+			<span><i>{{ news.published|date:"SHORT_DATETIME_FORMAT"}}, {{ news.published_by }}</i></span><br>
 	</div>
 	<hr/>
 	{% endfor %}
