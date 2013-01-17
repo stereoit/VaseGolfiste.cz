@@ -1,0 +1,7 @@
+<ul class="nav nav-pills pull-right">
+	<li class="{% if active_tab == 'uvod' %} active{% endif %}"><a href="/">Úvod</a></li>
+	<li class="{% if active_tab == 'news' %} active{% endif %}"><a href="{% url news.list %}">Aktuality</a></li>
+	<li class="{% if active_tab == 'clubs' %} active{% endif %}"><a href="{% url golfclub.list %}">Kluby</a></li>
+	<li class="{% if active_tab == 'courses' %} active{% endif %}"><a href="{% url golfcourse.list %}">Veřejná hřiště</a></li>
+	<li class="{% if active_tab == 'forum' %} active{% endif %}"><a href="#">Přihlásit se</a></li>
+</ul>
