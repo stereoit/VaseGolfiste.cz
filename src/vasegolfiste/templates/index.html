@@ -1,21 +1,59 @@
 {% extends "base.html" %}
-{% block content %}
-<div class="page-header">
-	<h1>VašeGolfiště.cz <small>Místo pro společnou řeč</small></h1>
-</div>
-<div class="hero-unit">
-	<br/>
-	<p>Tyto stránky založili golfoví nadšenci, amatéři, kteří věří, že golf je sportem pro každého v každem věku. Chtěli bychom, aby tyto stránky pomohli v začátcích jak Vás, kteří si chtece vyzkoušet svůj první odpal golfového míče, tak i těm, co se do golfu zamilují s rádi by si hráli na svém vlastním greenu. Dočtete se zde, kde můžete začít s trénikem, kam vyrazit na veřejné hřište či driving". Najdete zde odkazy na zpřátelné kluby, jenž mezi sebou pořádají turnaje, kterých se můžete zůčastnit i Vy, a spoustu dalšího. Těšíme se, že se potkáme na hřisti.   </p>
-	<a class="btn btn-primary btn-large">
-		Přihlásit
-	</a>
-	</p>
-</div>
-<footer>
-<address>
-	<strong>VašeGolfiště.cz</strong><br>
-	Martin Kužel<br>
-	<abbr title="Telefon">Tel:</abbr> +420 776 488 763
-</address>
-</footer>
-{% endblock %}
+{% block title %}Vítejte {% endblock %}
+		{% block main-content %}
+      <div class="jumbotron">
+      	    <div id="myCarousel" class="carousel slide" data-interval="5000">
+							<!-- Carousel items -->
+							<div class="carousel-inner">
+								<div class="active item"><img src="{{ STATIC_URL }}img/carousel-01.jpg" alt="">…</div>
+								<div class="item"><img src="{{ STATIC_URL }}img/carousel-02.jpg" alt="">…</div>
+								<div class="item"><img src="{{ STATIC_URL }}img/carousel-03.jpg" alt="">…</div>
+								<div class="item"><img src="{{ STATIC_URL }}img/carousel-04.jpg" alt="">…</div>
+								<div class="item"><img src="{{ STATIC_URL }}img/carousel-05.jpg" alt="">…</div>
+								<div class="item"><img src="{{ STATIC_URL }}img/carousel-06.jpg" alt="">…</div>
+								<div class="item"><img src="{{ STATIC_URL }}img/carousel-07.jpg" alt="">…</div>
+								<div class="item"><img src="{{ STATIC_URL }}img/carousel-08.jpg" alt="">…</div>
+								<div class="item"><img src="{{ STATIC_URL }}img/carousel-09.jpg" alt="">…</div>
+								<div class="item"><img src="{{ STATIC_URL }}img/carousel-10.jpg" alt="">…</div>
+								<div class="item"><img src="{{ STATIC_URL }}img/carousel-11.jpg" alt="">…</div>
+							</div>
+							<!-- Carousel nav -->
+							<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+							<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+						</div>
+        <!--
+        <h1>Místo pro výměnu názorů.</h1>
+				-->
+				<p class="lead">VašeGolfiště.cz je komunikační portál pro veřejné golfové areály, hřiště, driving a cvičné plochy. Napište nám a sdílejte své postřehy při budování a rozvoje golfové hry. Rekreační hráči a začínající golfisté, zde najdou seznam míst, kde si budete vždy moci odpálit pár míčů.
+				</p>
+        <!--
+				<a class="btn btn-large btn-success" href="#">Pokračovat</a>
+				-->
+      </div>
+
+      <hr>
+
+      <div class="row-fluid marketing">
+        <div class="span6">
+					<h4><a href="{% url news.list %}">Aktuality</a></h4>
+          <p>Zde se dozvíte veškeré naše novinky.</p>
+
+					<h4><a href="{% url golfclub.list %}">Kluby</a></h4>
+          <p>Seznam sdružených klubů.</p>
+
+					<h4><a href="{% url golfcourse.list %}">Hřiště</a></h4>
+          <p>Zde najdete seznam veřejných hřišť, odpališť a cvičných areálů.</p>
+        </div>
+
+        <div class="span6">
+          <h4>Diskuzní fórum</h4>
+          <p>Podělte se s námi o Vaše zkušenosti a ptejte se co Vás zajímá. Výstavba, vybavení, greenkeeping, klubový život, ... </p>
+
+          <h4>Kontakt</h4>
+						<p>Dotazy ohledně tohoto webu a vstup do fóra nás prosím kontaktujte na mail <a href="mailto:info@vasegolfiste.cz">info@vasegolfiste.cz</a>.</p>
+
+        </div>
+      </div>
+
+      <hr>
+	{% endblock %}

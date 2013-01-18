@@ -19,7 +19,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     #('^narrow/$', TemplateView.as_view(template_name='index-narrow.html')),
     url(r'^ckeditor/', include('ckeditor.urls')),
-    ('^$', TemplateView.as_view(template_name='index-narrow.html'))
+    ('^$', TemplateView.as_view(template_name='index.html'))
 )
 
 if settings.DEBUG:
