@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Vítejte {% endblock %}
+{% block menu %}{% include "includes/menu.html" with active_tab="uvod" %}{% endblock %}
+
 		{% block main-content %}
       <div class="jumbotron">
       	    <div id="myCarousel" class="carousel slide" data-interval="5000">
@@ -46,7 +48,7 @@
         </div>
 
         <div class="span6">
-          <h4>Diskuzní fórum</h4>
+					<h4><a href="{% url lbforum_index %}">Diskuzní fórum</a></h4>
           <p>Podělte se s námi o Vaše zkušenosti a ptejte se co Vás zajímá. Výstavba, vybavení, greenkeeping, klubový život, ... </p>
 
           <h4>Kontakt</h4>

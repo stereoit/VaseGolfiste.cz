@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Django settings for vasegolfiste project.
 import os
 PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
@@ -107,12 +108,26 @@ TEMPLATE_LOADERS = (
 #     'django.template.loaders.eggs.Loader',
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    "django.core.context_processors.tz",
+    "django.contrib.messages.context_processors.messages",
+    "django.core.context_processors.request",
+    "djangohelper.context_processors.ctx_config",
+)
+
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'pagination.middleware.PaginationMiddleware',
+    'onlineuser.middleware.OnlineUserMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -145,6 +160,12 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'ckeditor',
     'south',
+    'pagination',
+    'lbforum',
+    'simpleavatar',
+    'djangohelper',
+    'onlineuser',
+    'attachments',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -177,3 +198,73 @@ LOGGING = {
 }
 
 INTERNAL_IPS = ( '127.0.0.1',)
+
+
+
+# URL prefix for lbforum media -- CSS, JavaScript and images. Make sure to use a
+# trailing slash.
+# Examples: "http://foo.com/media/", "/media/".
+
+#The URL where requests are redirected after login
+LOGIN_REDIRECT_URL = '/forum/'
+#The URL where requests are redirected for login
+LOGIN_URL = "/uzivatele/login/"
+#LOGIN_URL counterpart
+LOGOUT_URL = "/uzivatele/logout/"
+#register url
+REGISTER_URL = '/uzivatele/register/'
+
+CTX_CONFIG = {
+        'LBFORUM_TITLE': 'Forum VašeGolfiště.cz',
+        'LBFORUM_SUB_TITLE': 'Napište nám a sdílejte své postřehy při budování a rozvoje golfové hry.',
+        'FORUM_PAGE_SIZE': 50,
+        'TOPIC_PAGE_SIZE': 20,
+
+        'LOGIN_URL': LOGIN_URL,
+        'LOGOUT_URL': LOGOUT_URL,
+        'REGISTER_URL': REGISTER_URL,
+        }
+
+BBCODE_AUTO_URLS = True
+#add allow tags
+HTML_SAFE_TAGS = ['embed']
+HTML_SAFE_ATTRS = ['allowscriptaccess', 'allowfullscreen', 'wmode']
+#add forbid tags
+HTML_UNSAFE_TAGS = []
+HTML_UNSAFE_ATTRS = []
+
+"""
+#default html safe settings
+acceptable_elements = ['a', 'abbr', 'acronym', 'address', 'area', 'b', 'big',
+    'blockquote', 'br', 'button', 'caption', 'center', 'cite', 'code', 'col',
+    'colgroup', 'dd', 'del', 'dfn', 'dir', 'div', 'dl', 'dt', 'em',
+    'font', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'hr', 'i', 'img',
+    'ins', 'kbd', 'label', 'legend', 'li', 'map', 'menu', 'ol',
+    'p', 'pre', 'q', 's', 'samp', 'small', 'span', 'strike',
+    'strong', 'sub', 'sup', 'table', 'tbody', 'td', 'tfoot', 'th',
+    'thead', 'tr', 'tt', 'u', 'ul', 'var']
+acceptable_attributes = ['abbr', 'accept', 'accept-charset', 'accesskey',
+    'action', 'align', 'alt', 'axis', 'border', 'cellpadding', 'cellspacing',
+    'char', 'charoff', 'charset', 'checked', 'cite', 'clear', 'cols',
+    'colspan', 'color', 'compact', 'coords', 'datetime', 'dir',
+    'enctype', 'for', 'headers', 'height', 'href', 'hreflang', 'hspace',
+    'id', 'ismap', 'label', 'lang', 'longdesc', 'maxlength', 'method',
+    'multiple', 'name', 'nohref', 'noshade', 'nowrap', 'prompt',
+    'rel', 'rev', 'rows', 'rowspan', 'rules', 'scope', 'shape', 'size',
+    'span', 'src', 'start', 'summary', 'tabindex', 'target', 'title', 'type',
+    'usemap', 'valign', 'value', 'vspace', 'width', 'style']
+"""
+
+
+#always show topic post in topic page.
+LBF_STICKY_TOPIC_POST = True
+#show last topic in index page
+LBF_LAST_TOPIC_NO_INDEX = True
+#add v2ex template dir to TEMPLATE_DIRS
+import lbforum
+V2EX_TEMPLATE_DIR = os.path.join(PROJECT_DIR, 'templates', 'templates_v2ex')
+TEMPLATE_DIRS += (
+#        os.path.join(HERE, 'templates_plus'),
+#        os.path.join(HERE, 'templates_v2ex'),
+        V2EX_TEMPLATE_DIR,
+)

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Přihlášení uživatele{% endblock %}
+{% block page_title %}{% endblock %}
+{% block styles_extra %} 
+<link href="{{ STATIC_URL }}/css/login.css" rel="stylesheet" media="screen">
+{% endblock %}
+
+	{% block main-content %}
+<div class="container">
+		<div class="content">
+			<div class="row">
+				<div class="login-form">
+					<h2>Přihlášení</h2>
+					{% if form.errors %}
+				<p>Zadané uživatelské jméno a heslo nejsou platné.</p>
+				{% endif %}
+					<form action="{% url login %}" method="post">
+				{% csrf_token %}
+						<fieldset>
+							<div class="control-group">
+								<input type="text" placeholder="Uživatelské jméno" id="id_username">
+							</div>
+							<div class="control-group">
+								<input type="password" placeholder="Heslo" id="id_password">
+							</div>
+							<button class="btn btn-primary" type="submit">Přihlásit</button>
+						</fieldset>
+						<input type="hidden" name="next" value="{{ next }}" />
+					</form>
+				</div>
+			</div>
+		</div>
+</div> <!-- /container -->
+	{% endblock %}
+
+{% block footer %} {% endblock %}

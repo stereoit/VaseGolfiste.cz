@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block menu %}{% include "includes/menu.html" with active_tab="forum" %}{% endblock %}
+{% block styles %} 
+		{% include 'lbforum/inc_styles.html' %}
+{% endblock %}
+
+{% block title %} {{ LBFORUM_TITLE }} - {{ LBFORUM_SUB_TITLE }} {% endblock %}
+
+{% block main-content %}
+
+    <div id="Wrapper">
+        <div id="Main">
+            <div id="Sidebar">
+            </div>
+
+            <div id="Rightbar">
+                {% block content_right_bar%}
+                {% endblock %}
+            </div>
+
+            <div id="Content">
+                {% block content_content %}
+                {% endblock %}
+            </div>
+
+            <div class="c">
+            </div>
+        </div>
+    </div>
+
+	<hr/>
+
+{% endblock %}

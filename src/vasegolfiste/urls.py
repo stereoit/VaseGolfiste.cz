@@ -19,6 +19,9 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     #('^narrow/$', TemplateView.as_view(template_name='index-narrow.html')),
     url(r'^ckeditor/', include('ckeditor.urls')),
+    url(r'^attachments/', include('attachments.urls')),
+    url(r'forum/', include('lbforum.urls')),
+    url(r'uzivatele/', include('django.contrib.auth.urls')),
     ('^$', TemplateView.as_view(template_name='index.html'))
 )
 
