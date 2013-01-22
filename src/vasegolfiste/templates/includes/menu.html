@@ -3,6 +3,10 @@
 	<li class="{% if active_tab == 'news' %} active{% endif %}"><a href="{% url news.list %}">Aktuality</a></li>
 	<li class="{% if active_tab == 'clubs' %} active{% endif %}"><a href="{% url golfclub.list %}">Kluby</a></li>
 	<li class="{% if active_tab == 'courses' %} active{% endif %}"><a href="{% url golfcourse.list %}">Veřejná hřiště</a></li>
-	<li class="{% if active_tab == 'forum' %} active{% endif %}"><a href="{% url lbforum_index %}">Diskuzní fórum</a></li>
-	{% if user.is_authenticated %}<li><a href="{% url logout %}">Odhlásit</a></li>{% endif %}
+	{% if user.is_authenticated %}
+	  <li class="{% if active_tab == 'forum' %} active{% endif %}"><a href="{% url lbforum_index %}">Diskuzní fórum</a></li>
+	  <li><a href="{% url logout %}">Odhlásit</a></li>
+	{% else %}
+	  <li><a href="{% url login %}">Přihlásit</a></li>
+	{% endif %}
 </ul>

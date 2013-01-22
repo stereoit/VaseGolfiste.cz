@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Registrace uživatele{% endblock %}
+{% block page_title %}{% endblock %}
+{% block styles_extra %} 
+<link href="{{ STATIC_URL }}/css/login.css" rel="stylesheet" media="screen">
+{% endblock %}
+
+	{% block main-content %}
+<div class="container register">
+		<div class="content">
+			<div class="row">
+				<div class="login-form">
+					<h2>Registrace uzivatele</h2>
+					<form action="{% url registration %}" method="post">
+				{% csrf_token %}
+					{{ form.as_table }}
+						<br/>
+						<br/>
+						<button class="btn btn-success" type="submit">Registrovat</button>
+					</form>
+				</div>
+			</div>
+		</div>
+</div> <!-- /container -->
+	{% endblock %}
+
+{% block footer %} {% endblock %}

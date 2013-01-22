@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load course_tags %}
 	{% block page_title %}Veřejná hřiště{% endblock %}
 	{% block title %}Veřejná hřiště{% endblock %}
 	{% block menu %}{% include "includes/menu.html" with active_tab="courses" %}{% endblock %}
@@ -9,7 +10,13 @@
 	{% for course in golfcourse_list %}
 	<div class="course">
 		<h3>{{ course.title }}</h3>
-		<p>{{ course.description|safe }}</p>
+		<div style="float:left; width: 300px;">
+		{% course_map course.location %}
+		</div>
+		<div style="float:left; margin-right:4em; margin-left: 4em;">
+			<p>{{ course.description|safe }}</p>
+		</div>
+	<div class="clearfix"/>
 	</div>
 	<hr/>
 	{% endfor %}

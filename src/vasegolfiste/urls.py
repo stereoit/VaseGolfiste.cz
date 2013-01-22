@@ -5,6 +5,10 @@ from django.views.generic.base import TemplateView
 from django.contrib import admin
 admin.autodiscover()
 
+from patterns import required
+from django.contrib.auth.decorators import login_required
+
+
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'vasegolfiste.views.home', name='home'),
@@ -20,9 +24,16 @@ urlpatterns = patterns('',
     #('^narrow/$', TemplateView.as_view(template_name='index-narrow.html')),
     url(r'^ckeditor/', include('ckeditor.urls')),
     url(r'^attachments/', include('attachments.urls')),
-    url(r'forum/', include('lbforum.urls')),
     url(r'uzivatele/', include('django.contrib.auth.urls')),
+    url(r'registrace/', 'simpleregistration.views.register', name='registration'),
     ('^$', TemplateView.as_view(template_name='index.html'))
+)
+
+urlpatterns += required(
+    login_required,
+    patterns('',
+        url(r'forum/', include('lbforum.urls')),
+    )
 )
 
 if settings.DEBUG:

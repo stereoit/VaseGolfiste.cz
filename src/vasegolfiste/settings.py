@@ -166,6 +166,7 @@ INSTALLED_APPS = (
     'djangohelper',
     'onlineuser',
     'attachments',
+    'simpleregistration',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -268,3 +269,5 @@ TEMPLATE_DIRS += (
 #        os.path.join(HERE, 'templates_v2ex'),
         V2EX_TEMPLATE_DIR,
 )
+
+GOOGLE_API_KEY = 'AIzaSyD0GRUo2rcpHMDrcWYYO5Dv2Y1XpGF1MsU'
