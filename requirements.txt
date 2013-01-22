@@ -2,7 +2,7 @@ BeautifulSoup==3.2.1
 Coffin==0.3.7
 Django==1.4.3
 Jinja2==2.6
-LBForum==0.9.22
+-e git://github.com/vicalloy/LBForum.git#egg=LBForum
 PIL==1.1.7
 Pillow==1.7.8
 South==0.7.6
