@@ -118,6 +118,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.messages.context_processors.messages",
     "django.core.context_processors.request",
     "djangohelper.context_processors.ctx_config",
+    "vasegolfiste.context_processors.common_data",
 )
 
 MIDDLEWARE_CLASSES = (
@@ -271,3 +272,4 @@ TEMPLATE_DIRS += (
 )
 
 GOOGLE_API_KEY = 'AIzaSyD0GRUo2rcpHMDrcWYYO5Dv2Y1XpGF1MsU'
+STATIC_MEDIA_VERSION=1

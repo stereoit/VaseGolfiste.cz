@@ -53,3 +53,12 @@ td img.logo { height: 90px;margin-right: 1em;}
     margin-left: auto;
     margin-right: auto;
 }
+
+.maplink img { 
+    border: solid 6px transparent;
+    box-shadow: 1px 1px 3px #777; 
+}
+.maplink img:hover { box-shadow: 3px 3px 8px #777; }
+.course .left { float: left; }
+.course .right { float: left; margin-left: 2em; }
+

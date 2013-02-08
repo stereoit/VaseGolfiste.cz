@@ -21,13 +21,14 @@ def convert(coordinates):
     return lat_lon
 
 @register.inclusion_tag('includes/google-map.html')
-def course_map(position):
+def course_map(position, description):
     try:
         (lat, lon) = convert(position)
     except:
         return False
     return {
         'coordinates': '%5f,%5f' % (lat, lon),
+        'description': description,
         'key': settings.GOOGLE_API_KEY
     }
 
