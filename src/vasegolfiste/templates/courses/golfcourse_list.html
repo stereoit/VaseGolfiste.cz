@@ -13,12 +13,13 @@
 		<h3>{{ course.title }}</h3>
 		<div class="row">
 		<div class="left span4">
-			<!-- <div style="float:left; width: 300px;"> -->
 		{% course_map course.location course.title%}
 		</div>
 		<div class="right span7">
-		<!-- <div style="float:left; margin-right:4em; margin-left: 4em;"> -->
 			<p>{{ course.description|safe }}</p>
+			{% if course.club %}
+			<a href="{% url golfclub.detail course.club.slug %}">více informací</a>
+			{% endif %}
 		</div>
 	<div class="clearfix"/>
 	</div>

@@ -9,7 +9,7 @@ class GolfCourse(models.Model):
     slug = models.SlugField(max_length=100)
     description = RichTextField(_('description'))
     location = models.CharField(max_length=70, blank=True)
-    club = models.ForeignKey(GolfClub, blank=True)
+    club = models.ForeignKey(GolfClub, blank=True, null=True)
 
     def __unicode__(self):
         return self.title

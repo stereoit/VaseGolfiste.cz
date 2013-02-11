@@ -7,6 +7,6 @@ from models import GolfClub
 urlpatterns = patterns(
     '', 
     url(r'^$', ListView.as_view(model=GolfClub), name='golfclub.list'),
-    url(r'^(?P<slug>[-_\w]+)/$', DetailView.as_view(model=GolfClub), name='golfclub.detail'),
+    url(r'^(?P<slug>[-_\w]+)/$', DetailView.as_view(model=GolfClub, context_object_name="club"), name='golfclub.detail'),
 )
 

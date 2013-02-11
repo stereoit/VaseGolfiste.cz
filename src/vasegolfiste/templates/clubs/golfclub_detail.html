@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block page_title %}Klub {{ club.title }}{% endblock %}
+{% block title %}{{ club.title }}{% endblock %}
+	{% block menu %}{% include "includes/menu.html" with active_tab="clubs" %}{% endblock %}
+
+	{% block main-content %}
+	<div class="club">
+		<table class="club">
+			<tr class="logo">
+				<td class="logo">
+				<img class="logo" alt="{{ club.title }} logo" src="{{ MEDIA_URL }}{{ club.logo }}" >
+			  </td>
+				<td class="title">
+					<h3 class="title">{{ club.title }}</h3>
+					{% if club.status %}
+					<span class="status">{{ club.get_status_display }}</span>
+					{% endif %}
+				</td>
+			</tr>
+		</table>
+		<p>{{ club.description|safe }}</p>
+	<a href="{% url golfclub.list %}">Zpět na výpis klubů.</a>
+	</div>
+	<hr/>
+	{% endblock %}
