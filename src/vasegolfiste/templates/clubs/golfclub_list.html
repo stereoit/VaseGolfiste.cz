@@ -15,7 +15,9 @@
 			  </td>
 				<td class="title">
 					<h3 class="title">{{ club.title }}</h3>
+					{% if club.status %}
 					<span class="status">{{ club.get_status_display }}</span>
+					{% endif %}
 				</td>
 			</tr>
 		</table>

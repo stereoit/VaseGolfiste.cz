@@ -12,7 +12,7 @@ class GolfClub(models.Model):
     slug = models.SlugField(max_length=100)
     description = RichTextField(_('description'))
     logo = models.ImageField(upload_to='logos/', max_length=100)
-    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='ASSOCIATED')
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='ASSOCIATED', blank=True)
 
     def __unicode__(self):
         return self.title
