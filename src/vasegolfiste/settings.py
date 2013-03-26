@@ -155,6 +155,7 @@ INSTALLED_APPS = (
     'vasegolfiste.clubs',
     'vasegolfiste.courses',
     'news',
+    'carousel',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
